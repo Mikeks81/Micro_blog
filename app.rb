@@ -18,5 +18,16 @@ post '/' do
 	if @user && @user.password == params[:password]
 		session[:user_id] = @user.id
 		flash[:notice] = "Hello " + :username + " You have signed in."
+	else
+		redirect "/"
+		flash[:notice] = "Please enter a valid username/password combo"
 	end
 end
+
+get '/signup' do
+	erb :signup
+end
+
+post '/signup' do
+	@user = User.create(username: username, password: password)
+end 
