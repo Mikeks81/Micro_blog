@@ -51,6 +51,17 @@ post '/user' do
 	redirect '/user'
 end
 
+get '/edit_acct' do
+	@user = current_user
+	erb :edit_acct
+end
+
+post '/edit_acct' do
+	@user = current_user
+	@user.update_attributes(name: params[:name],username: params[:username],email: params[:email],password: params[:password])
+	redirect '/'
+end
+
 get '/delete_acct' do
 	@user = current_user
 	@user.delete

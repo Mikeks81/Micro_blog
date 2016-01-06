@@ -1,0 +1,11 @@
+<h1>Account details</h1>
+
+<form method="POST" action="/edit_acct">
+<input name="name" type="text" placeholder= <%= @user.name %> value= <% @user.name %> >
+<input name="username" type="text" placeholder= <%= @user.username %> value=<% @user.username %> >
+<input name="email" type="text" placeholder= <%= @user.email %>
+value= <% @user.email %> >
+<input name="password" type="text" placeholder="password">
+<input type="submit">
+	
+</form>
