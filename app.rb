@@ -8,6 +8,9 @@ set :database, "sqlite3:micro_blogdb.sqlite3"
 enable :sessions
 
 get '/' do
+	if current_user
+		redirect '/user'
+	end
 	erb :signin	
 end
 
@@ -16,10 +19,11 @@ post '/' do
 
 	if @user && @user.password == params[:password]
 		session[:user_id] = @user.id
-		flash[:notice] = "Hello " + @user.username + " You have signed in."
+		redirect '/user'
 	else
-		redirect "/"
 		flash[:notice] = "Please enter a valid username/password combo"
+		redirect "/"
+		
 	end
 end
 
@@ -29,12 +33,33 @@ end
 
 post '/signup' do
 	User.create(name: params[:name],password: params[:password],
-		username: params[:username],email: [:email], images: params[:images])
+		username: params[:username],email: params[:email], images: params[:images])
 	redirect '/user'
 end 
 
-get '/user' do
+get '/user' do 
+	@user = current_user
+	@post = Post.all
 	erb :user
-	flash[:notice] = "Welcome " + @user.username + " !"
+	# if current_user
+	# 	flash[:notice] = "Welcome, " + @current_user.username + "!"
+	# end
 end
+
+post '/user' do 
+	Post.create(title: params[:title],body: params[:body])
+	redirect '/user'
+end
+
+get '/logout' do
+	session.clear
+	redirect '/'
+end
+
+def current_user
+	if session[:user_id]
+		@current_user = User.find(session[:user_id])
+	end
+end
+
 

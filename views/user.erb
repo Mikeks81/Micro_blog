@@ -1,0 +1,17 @@
+<% if flash[:notice] %>
+	<h1 class="flash notice"></h1>
+	<%= flash[:notice] %>
+<% end %>
+<h1><%= "Welcome, #{@user.username}" %></h1>
+<form method="POST" action="/user">
+	<input name="title" type="text" placeholder="Title">
+	<textarea name="body" type="text" placeholder="Body"></textarea>
+	<button type="submit" id="post_blog" >Post</button>
+</form>
+
+<a href="/logout" id="logout">Log Out</a>
+
+<% @post.each do |post|	%>
+	<h2><%= post.title %></h2>
+	<h3><%= post.body %></h3>
+<% end %>
