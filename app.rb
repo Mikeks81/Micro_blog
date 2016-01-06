@@ -33,15 +33,15 @@ get '/signup' do
 end
 
 post '/signup' do
-	User.create(name: params[:name],password: params[:password],
+	@user = User.create(name: params[:name],password: params[:password],
 		username: params[:username],email: params[:email], images: params[:images])
+	session[:user_id] = @user.id
 	redirect '/user'
 end 
 
 get '/user' do 
-	puts session.inspect
 	@user = current_user
-	@post = @user.posts
+	@posts = @user.posts
 	erb :user
 end
 
@@ -49,6 +49,20 @@ post '/user' do
 	@user = current_user
 	Post.create(title: params[:title],body: params[:body],user_id: @user.id)
 	redirect '/user'
+end
+
+get '/delete_acct' do
+	@user = current_user
+	@user.delete
+	session.clear
+	redirect '/'
+end
+
+get '/remove_lpost' do
+	@user = current_user
+	@last_post = Post.where(@user.id).last
+	@last_post.delete
+	redirect '/'
 end
 
 get '/logout' do
