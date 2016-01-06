@@ -18,6 +18,7 @@ post '/' do
 	@user = User.where(username: params[:username]).first
 
 	if @user && @user.password == params[:password]
+		flash[:notice] = "Thanks for logging in!"
 		session[:user_id] = @user.id
 		redirect '/user'
 	else
@@ -38,16 +39,15 @@ post '/signup' do
 end 
 
 get '/user' do 
+	puts session.inspect
 	@user = current_user
-	@post = Post.all
+	@post = @user.posts
 	erb :user
-	# if current_user
-	# 	flash[:notice] = "Welcome, " + @current_user.username + "!"
-	# end
 end
 
 post '/user' do 
-	Post.create(title: params[:title],body: params[:body])
+	@user = current_user
+	Post.create(title: params[:title],body: params[:body],user_id: @user.id)
 	redirect '/user'
 end
 

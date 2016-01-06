@@ -11,7 +11,11 @@
 
 <a href="/logout" id="logout">Log Out</a>
 
+
+<h2>Your Posts</h2>
 <% @post.each do |post|	%>
-	<h2><%= post.title %></h2>
-	<h3><%= post.body %></h3>
+	<div id="user_posts">
+	<h3><%= post.title %></h3>
+	<h4><%= post.body %></h4>
+	</div>
 <% end %>
