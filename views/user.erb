@@ -2,7 +2,16 @@
 	<h1 class="flash notice"></h1>
 	<%= flash[:notice] %>
 <% end %>
+
 <h1><%= "Welcome, #{@user.username}" %></h1>
+
+<div>
+	<h4>Account Info</h4>
+	<li>Name: <%= @user.name %></li>
+	<li>Username: <%= @user.username %></li>
+	<li>Email: <%= @user.email %></li>
+</div>
+
 <form method="POST" action="/user">
 	<input name="title" type="text" placeholder="Title">
 	<textarea name="body" type="text" placeholder="Body"></textarea>
@@ -14,11 +23,22 @@
 <a href="/delete_acct" id="delete_acct">Delete Account</a>
 <a href="/remove_lpost" id="remove_lpost">Remove Last Post</a>
 
-
+<h2>Users</h2>
+<% @all_user.each do |user| %>
+<a href="#"><%= user = user.username %></a>
+<% end %>
 
 <h2>Your Posts</h2>
 <% @posts.each do |post|	%>
 	<div id="user_posts">
+	<h3><%= post.title %></h3>
+	<h4><%= post.body %></h4>
+	</div>
+<% end %>
+
+<h2>All Posts</h2>
+<% @all_posts.each do |post| %>
+	<div id="all_posts">
 	<h3><%= post.title %></h3>
 	<h4><%= post.body %></h4>
 	</div>

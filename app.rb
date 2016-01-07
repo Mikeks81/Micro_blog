@@ -41,7 +41,9 @@ end
 
 get '/user' do 
 	@user = current_user
+	@all_user = User.all
 	@posts = @user.posts
+	@all_posts = Post.all
 	erb :user
 end
 
