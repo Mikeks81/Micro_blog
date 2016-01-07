@@ -24,12 +24,7 @@ post '/' do
 	else
 		flash[:notice] = "Please enter a valid username/password combo"
 		redirect "/"
-		
 	end
-end
-
-get '/signup' do
-	erb :signup
 end
 
 post '/signup' do
@@ -42,8 +37,8 @@ end
 get '/user' do 
 	@user = current_user
 	@all_user = User.all
-	@posts = @user.posts
-	@all_posts = Post.all
+	@posts = @user.posts.reverse
+	@all_posts = Post.all.reverse
 	erb :user
 end
 

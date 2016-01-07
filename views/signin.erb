@@ -1,18 +1,45 @@
-<% if flash[:notice] %>
-	<div class="flash notice">
-		<%= flash[:notice] %>
-	</div>
-<% end %>
-<h3>Please log in below.</h3>
-<form method="POST" action="/">
-	<label for="username">Username</label>
-	<input type="string" name ="username">
-	<label for="password">Password</label>
-	<input type="password" name="password">
-	<button type="submit">Sign In</button>
-</form>
+<div id="sign_container">
+	<div id="center_sign">
+		<div id="sign_in">
+			<h3>Please log in below.</h3>
+			<form method="POST" action="/">
+				<label for="username">Username:</label><br>
+				<input type="string" name ="username">
+				<br>
+				<label for="password">Password:</label><br>
+				<input type="password" name="password">
+				<br>
+				<br>
+				<button type="submit">Sign In</button>
+			</form>
+		</div>
 
-<div>
-	<p>Don't have an account?</p>
-	<a href="/signup">Sign up!</a>
+		<!-- <div>
+			<p>Don't have an account?</p>
+			<a href="/signup">Sign up!</a>
+		</div> -->
+		<div id="sign_up">
+			<h3>Sign up to join !twit</h3>	
+
+			<form method="POST" action="/signup">
+				<label for="name">Name:</label>
+				<br>
+				<input class="input_right" type="string" name="name">
+				<br>
+				<label for="username">Username:</label>
+				<br>
+				<input type="string" name ="username">
+				<br>
+				<label for="email">Email:</label>
+				<br>
+				<input class="input_right" type="string" name="email">
+				<br>
+				<label for="password">Password:</label><br>
+				<input type="password" name="password">
+				<br>
+				<br>
+				<button type="submit" id="signup_button">Sign up</button>
+			</form>
+		</div>
+	</div>
 </div>

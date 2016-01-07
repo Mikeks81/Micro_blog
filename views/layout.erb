@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>!Twit</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>!twit</h1>
+	</header>
+	<div id="flashy_message">
+		<% if flash[:notice] %>
+			<h3 class="flash notice"></h3>
+			<%= flash[:notice] %>
+		<% end %>
+	</div>
+	<%= yield %>
+</body>
+</html>
