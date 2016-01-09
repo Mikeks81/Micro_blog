@@ -37,8 +37,8 @@ end
 get '/user' do 
 	@user = current_user
 	@all_user = User.all
-	@posts = @user.posts.reverse
-	@all_posts = Post.all.reverse
+	@posts = @user.posts.reverse.first(10)
+	@all_posts = Post.all.reverse.first(10)
 	erb :user
 end
 
@@ -72,6 +72,12 @@ get '/remove_lpost' do
 	@last_post.delete
 	redirect '/'
 end
+
+get 'profile/:id' do
+	@user = User.all
+	@user = User.find_by(id: params(:id))
+	@posts = Post.where(user_id: @user.id)
+	erb :profile
 
 get '/logout' do
 	session.clear

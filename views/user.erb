@@ -32,7 +32,7 @@
 	<div id="users_list">
 		<h2>Users</h2>
 		<% @all_user.each do |user| %>
-		<li><a href="#"><%= user = user.username %></a></li>
+		<li><a href="/user/:id"><%= user = user.username %></a></li>
 		<% end %>
 	</div>
 
