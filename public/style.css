@@ -66,11 +66,14 @@ header h1 {
 /*########### User Page ####################*/
 
 #greeting {
-	border-bottom: solid 1px #888888;
+	margin: 10px 0 5px 0;
+	border-bottom: solid 3px #888888;
 }
 
 #acct_info_and_twitpost {
 	width: 100%;
+
+	margin:10px 0 20px 0;
 	box-shadow: 0 0 10px #bfbfbf;
 	overflow: auto;
 }
@@ -90,7 +93,7 @@ header h1 {
 	padding-bottom: 10px;
 	display: inline-block;
 	width: 55%;
-	border-left: solid 1px #bfbfbf;
+	border-left: solid 2px #bfbfbf;
 }
 
 #twit_post h4 {
@@ -126,7 +129,7 @@ header h1 {
 	width: 24%;
 	height: 40em;
 	float: left;
-	border-right: solid 1px #bfbfbf;
+	border-right: solid 2px #bfbfbf;
 }
 
 #users_list li {
@@ -140,8 +143,12 @@ header h1 {
 	width: 72%;
 	height: 300px;
 	float: left;
-	border-bottom: solid 1px #bfbfbf;
+	border-bottom: solid 2px #bfbfbf;
 	overflow: scroll;
+}
+
+#user_posts {
+	border-bottom: solid 1px #bfbfbf;
 }
 
 #all_user_posts {
@@ -151,6 +158,10 @@ header h1 {
 	width: 72%;
 	height: 300px;
 	overflow: scroll;
+}
+
+#all_posts {
+	border-bottom: solid 1px #bfbfbf;
 }
 
 

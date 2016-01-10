@@ -73,11 +73,18 @@ get '/remove_lpost' do
 	redirect '/'
 end
 
-get 'profile/:id' do
-	@user = User.all
-	@user = User.find_by(id: params(:id))
-	@posts = Post.where(user_id: @user.id)
+get '/delete_post/:id' do 
+	@user = current_user
+	@post = @user.posts.find(params[:id])
+	@post.delete
+	redirect '/user'
+end
+
+get '/profile/:id' do
+	@user_page = User.find_by(id: params[:id])
+	@posts = @user_page.posts
 	erb :profile
+end
 
 get '/logout' do
 	session.clear

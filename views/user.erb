@@ -4,6 +4,7 @@
 <% end %>
 
 <h1 id="greeting"><%= "Welcome, #{@user.username}" %></h1>
+<a href="/logout" id="logout">Log Out</a>
 <div id="acct_info_and_twitpost">
 	<div id="acct_info">
 		<h4>Account Info</h4>
@@ -27,12 +28,12 @@
 	</div>
 </div>
 
-<a href="/logout" id="logout">Log Out</a>
+
 <div id="users_allposts_userpost_container">
 	<div id="users_list">
 		<h2>Users</h2>
 		<% @all_user.each do |user| %>
-		<li><a href="/user/:id"><%= user = user.username %></a></li>
+		<li><a href="/profile/<%= user.id %>" id="/profile/:id"><%= user = user.username %></a></li>
 		<% end %>
 	</div>
 
@@ -41,8 +42,11 @@
 		<% @posts.each do |post| %>
 			<div id="user_posts">
 			<h3>Title: <%= post.title %></h3>
-			<h4>Body: <%= post.body %></h4>
+			<h3>Body: <%= post.body %></h4>
+			<p>Created At <%= post.created_at %> Author: <%= @user.username %></p>
+			<a href="/delete_post/<%= post.id %>" id="/delete_post">Delete Post</a>
 			</div>
+
 		<% end %>
 	</div>
 
@@ -51,7 +55,8 @@
 		<% @all_posts.each do |post| %>
 			<div id="all_posts">
 			<h3>Title: <%= post.title %></h3>
-			<h4>Body: <%= post.body %></h4>
+			<h3>Body: <%= post.body %></h4>
+			<p>Created At <%= post.created_at %> Author: <%= post.user_id %></p>
 			</div>
 		<% end %>
 	</div>
