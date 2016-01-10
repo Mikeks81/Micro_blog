@@ -1,0 +1,171 @@
+body {
+	top: 0;
+	left:0;
+	margin:0;
+	padding:0;
+}
+
+/*########### Flash Message #############*/
+header {
+	width: 100%;
+	background-color: #dbd9d9;
+}
+
+header h1 {
+	margin:0;
+	margin-left: 30px;
+	padding:0;
+	color:#fffefc;
+}
+
+#flashy_message {
+	height:25px;
+	text-align: center;
+	background-color:#fcab41;
+	display: none;
+}
+
+/*########## Sign in / Sign up ###############*/
+
+#sign_container {
+	height: 70%;
+	width:100%;
+	margin-top: 8%;
+	background-color: white;
+	overflow: auto;
+	box-shadow: 0 0 10px #d3d3d3;
+}
+
+#sign_center {
+	position: relative;
+	margin: auto;
+}
+
+#sign_in {
+	width: 20%;
+	margin-left: 25%;
+	padding-right:20px;
+	float: left;
+}
+
+#sign_in input {
+	width: 200px;
+}
+
+#sign_up {
+	width: 20%;
+	padding:0 0 20px 80px;
+	float: left;
+	border-left: 1px solid #bfbfbf;
+}
+
+#sign_up input{
+	width: 200px;
+}
+
+/*########### User Page ####################*/
+
+#greeting {
+	margin: 10px 0 5px 0;
+	border-bottom: solid 3px #888888;
+}
+
+#acct_info_and_twitpost {
+	width: 100%;
+
+	margin:10px 0 20px 0;
+	box-shadow: 0 0 10px #bfbfbf;
+	overflow: auto;
+}
+
+#acct_info {
+	padding: 0 0 10px 10px;
+	width: 24%;
+	float: left;
+}
+
+#acct_info a {
+	margin: 30px 10px 0 0;
+}
+
+#twit_post {
+	padding-left: 40px;
+	padding-bottom: 10px;
+	display: inline-block;
+	width: 55%;
+	border-left: solid 2px #bfbfbf;
+}
+
+#twit_post h4 {
+	margin: 20px 0 10px 0;
+}
+
+#twit_post input {
+	width: 40%;
+}
+
+#twit_post textarea {
+	width: 100%;
+	height: 40px;
+}
+
+#twit_post button {
+	float: left;
+	margin-bottom: 10px
+}
+
+#twit_post a {
+	float: right;
+}
+
+#users_allposts_userpost_container {
+	width: 100%;
+	box-shadow: 0 0 10px #bfbfbf;
+	overflow: auto;
+}
+
+#users_list {
+	padding: 0 0 10px 10px;
+	width: 24%;
+	height: 40em;
+	float: left;
+	border-right: solid 2px #bfbfbf;
+}
+
+#users_list li {
+	list-style: none;
+}
+
+#current_user_posts {
+	padding-left: 40px;
+	padding-bottom: 10px;
+	display: inline-block;
+	width: 72%;
+	height: 300px;
+	float: left;
+	border-bottom: solid 2px #bfbfbf;
+	overflow: scroll;
+}
+
+#user_posts {
+	border-bottom: solid 1px #bfbfbf;
+}
+
+#all_user_posts {
+	padding-left: 40px;
+	padding-bottom: 10px;
+	display: inline-block;
+	width: 72%;
+	height: 300px;
+	overflow: scroll;
+}
+
+#all_posts {
+	border-bottom: solid 1px #bfbfbf;
+}
+
+
+
+
+
+
