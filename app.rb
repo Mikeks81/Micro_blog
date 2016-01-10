@@ -31,6 +31,7 @@ post '/signup' do
 	@user = User.create(name: params[:name],password: params[:password],
 		username: params[:username],email: params[:email], images: params[:images])
 	session[:user_id] = @user.id
+	flash[:notice] = "Thanks for signing up!!"
 	redirect '/user'
 end 
 

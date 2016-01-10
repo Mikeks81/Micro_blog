@@ -11,10 +11,12 @@
 	</header>
 	<div id="flashy_message">
 		<% if flash[:notice] %>
-			<h3 class="flash notice"></h3>
+			<h3 class="flash notice">
 			<%= flash[:notice] %>
+			</h3>
 		<% end %>
 	</div>
 	<%= yield %>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="script.js"></script>
 </body>
 </html>
