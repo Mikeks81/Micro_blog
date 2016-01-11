@@ -3,7 +3,7 @@ require "sinatra/activerecord"
 require "./models"
 require "sinatra/flash"
 
-configure(:developement){set :database, "sqlite3:micro_blogdb.sqlite3"}
+set :database, "sqlite3:micro_blogdb.sqlite3"
 
 enable :sessions
 
